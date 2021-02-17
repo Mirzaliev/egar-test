@@ -6,23 +6,33 @@
 </template>
 
 <script>
+import Repository from "./Repository/ApiRepository";
+const Securities = Repository.get("securities");
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data() {
+    return {
+      securities: []
+    };
+  },
+  created() {
+    this.getSecurities();
+  },
+  methods: {
+    getSecurities: async function() {
+      const { data } = await Securities.get();
+      this.securities = data;
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+#app
+  color: white
 </style>
