@@ -1,4 +1,4 @@
-import Client from '../libs/axios';
+import Client from '../plugins/axios';
 const resource = '/securities.json';
 
 export default {

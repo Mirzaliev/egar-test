@@ -2,11 +2,13 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button class="button" @click="clockMehos()">Нажать</button>
   </div>
 </template>
 
 <script>
 import Repository from "./Repository/ApiRepository";
+import Noty from './plugins/toast'
 const Securities = Repository.get("securities");
 import HelloWorld from './components/HelloWorld.vue'
 
@@ -27,6 +29,9 @@ export default {
     getSecurities: async function() {
       const { data } = await Securities.get();
       this.securities = data;
+    },
+    clockMehos() {
+      Noty.show()
     }
   }
 }
