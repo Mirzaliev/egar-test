@@ -10,9 +10,8 @@
 </template>
 
 <script>
-import Repository from './Repository/ApiRepository';
+import { mapActions } from 'vuex'
 import CreateSecurities from './components/CreateSecurities.vue';
-const Securities = Repository.get('securities');
 
 export default {
   name: "App",
@@ -25,13 +24,16 @@ export default {
     };
   },
   created() {
-    this.getSecurities();
+    this.getDataFromFirebase()
+  },
+  beforeCreate() {
+    this.$store.watch((state) => state.securities, () => {
+      console.log('securities изменен')
+    })
   },
   methods: {
-    getSecurities: async function() {
-      const { data } = await Securities.get();
-      this.securities = data;
-    }
+    ...mapActions(['getDataFromFirebase']),
+
   }
 };
 </script>

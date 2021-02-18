@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import Modal from './Modal.vue';
 import Toast from '../plugins/toast';
 import Repository from '../Repository/ApiRepository';
@@ -92,6 +93,7 @@ export default {
   },
   computed: {},
   methods: {
+    ...mapActions(['getDataFromFirebase']),
     modalShowActions() {
       this.modalShow = !this.modalShow
     },
@@ -102,6 +104,7 @@ export default {
         // }
         await Securities.create(this.form).then(() => {
           Toast.successCreated();
+          this.getDataFromFirebase();
           this.modalShowActions();
         }).catch((e) => {
           Toast.error(e);
