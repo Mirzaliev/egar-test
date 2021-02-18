@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <button class="button" @click="clockMehos()">Нажать</button>
+    <div class="securities">
+      <span class="securities__title">
+        Ценные бумаги
+      </span>
+      <create-securities />
+    </div>
   </div>
 </template>
 
 <script>
-import Repository from "./Repository/ApiRepository";
-import Noty from './plugins/toast'
-const Securities = Repository.get("securities");
-import HelloWorld from './components/HelloWorld.vue'
+import Repository from './Repository/ApiRepository';
+import CreateSecurities from './components/CreateSecurities.vue';
+const Securities = Repository.get('securities');
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    CreateSecurities
   },
   data() {
     return {
@@ -29,15 +31,31 @@ export default {
     getSecurities: async function() {
       const { data } = await Securities.get();
       this.securities = data;
-    },
-    clockMehos() {
-      Noty.show()
     }
   }
-}
+};
 </script>
 
 <style lang="sass">
+body
+  font-size: 16px
+  margin: 0
+  padding: 0
 #app
-  color: white
+  color: black
+.securities
+  width: 38%
+  margin: 0 auto
+  border: 1px solid black
+  &__title
+    display: block
+    width: 100%
+    font-size: 1.6em
+    color: rgba(0, 0, 0, 0.96)
+    padding: 1rem
+.btn
+  border: 0
+  outline: 0
+  cursor: pointer
+
 </style>

@@ -1,22 +1,22 @@
-import Client from '../plugins/axios';
-const resource = '/securities.json';
+import Client from "../plugins/axios";
+const resource = "/securities.json";
 
 export default {
-    get() {
-        return Client.get(`${resource}`);
-    },
-    getPost(id) {
-        return Client.get(`${resource}/${id}`);
-    },
-    create(payload) {
-        return Client.post(`${resource}`, payload);
-    },
-    update(payload, id) {
-        return Client.put(`${resource}/${id}`, payload);
-    },
-    delete(id) {
-        return Client.delete(`${resource}/${id}`)
-    },
+  get() {
+    return Client.get(`${resource}`);
+  },
+  getPost(id) {
+    return Client.get(`${resource}/${id}`);
+  },
+  create(payload) {
+    return Client.post(`${resource}`, payload);
+  },
+  update(payload, id) {
+    return Client.put(`${resource}/${id}`, payload);
+  },
+  delete(id) {
+    return Client.delete(`${resource}/${id}`);
+  }
 
-    // MANY OTHER ENDPOINT RELATED STUFFS
+  // MANY OTHER ENDPOINT RELATED STUFFS
 };

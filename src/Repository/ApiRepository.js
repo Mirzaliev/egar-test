@@ -1,10 +1,9 @@
-import SecuritiesRepository from './SecuritiesRepository';
-
+import SecuritiesRepository from "./SecuritiesRepository";
 
 const repositories = {
-    'securities': SecuritiesRepository,
-}
+  securities: SecuritiesRepository
+};
 
 export default {
-    get: name => repositories[name]
+  get: name => repositories[name]
 };
