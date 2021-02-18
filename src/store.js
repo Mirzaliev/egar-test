@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Repository from './Repository/ApiRepository';
 const Securities = Repository.get('securities');
+import Serialize from './helpers/Serialize'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -28,7 +29,7 @@ export default new Vuex.Store({
     async getDataFromFirebase({commit}, requestObject) {
       commit('CLEAR_SECURITIES');
       const { data } = await Securities.get();
-      commit('ADD_SECURITIES', data)
+      commit('ADD_SECURITIES', Serialize.serializeFirebaseResponseData(data))
     }
   }
 });

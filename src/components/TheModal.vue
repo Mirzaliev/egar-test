@@ -7,10 +7,11 @@
       <div class="modal">
         <div class="modal-header">
           <span class="modal-header__title">Создание инструмента</span>
-          <button class="modal-header__close btn"
-                  @click="close"
+          <button
+            class="modal-header__close base-button"
+            @click="close"
           >
-            X
+            &#x2716;
           </button>
         </div>
         <div class="modal-content">
@@ -23,7 +24,7 @@
 
 <script>
 export default {
-  name: "Modal",
+  name: "TheModal",
   props: {
     show: {
       type: Boolean,
@@ -69,7 +70,10 @@ export default {
     justify-content: space-between
     color: rgb(0, 0, 0)
     &__close
-      background-color: white
+      background-color: white!important
+      width: 2rem!important
+      padding: 0!important
+      color: $muted!important
   &-content
     padding: .9rem
 // for transition

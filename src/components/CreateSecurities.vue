@@ -1,7 +1,7 @@
 <template>
   <div class="securities-create-wrap">
     <button
-      class="securities-create__btn btn"
+      class="securities-create__btn base-button"
       @click="modalShowActions"
     >
       Создать новый инструмент
@@ -21,7 +21,7 @@
               v-model="form.date"
               id="securitiesDate"
               type="date"
-              class="securitiesForm__form-control"
+              class="securitiesForm__form-control base-input"
               placeholder="18.03.1996"
             >
             <small
@@ -35,7 +35,7 @@
               v-model="form.name"
               id="securitiesName"
               type="text"
-              class="securitiesForm__form-control"
+              class="securitiesForm__form-control base-input"
               placeholder="Газпром"
             >
             <small
@@ -49,7 +49,7 @@
               v-model="form.price"
               id="securitiesPrice"
               type="number"
-              class="securitiesForm__form-control"
+              class="securitiesForm__form-control base-input"
               placeholder="2286"
             >
             <small
@@ -59,7 +59,7 @@
           </div>
           <button
             type="submit"
-            class="securities-create__btn btn"
+            class="securities-create__btn base-button"
           >
             Создать
           </button>
@@ -71,7 +71,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import Modal from './Modal.vue';
+import Modal from './TheModal.vue';
 import Toast from '../plugins/toast';
 import Repository from '../Repository/ApiRepository';
 const Securities = Repository.get('securities');
@@ -119,14 +119,6 @@ export default {
 @import "../assets/vars"
 .securities-create
   &__btn
-    font-size: 1.2em
-    width: 100%
-    color: $text-btn
-    padding: .6rem
-    background-color: $accent
-    &:hover
-      background-color: rgba(235, 232, 219, 0.86)
-      color: black
 .securities-create
   &-form-wrap
     width: 100%
@@ -137,16 +129,7 @@ export default {
     flex-direction: column
     margin: 1rem 0
   &__form-control
-    display: block
     padding: .375rem .75rem
-    font-size: 1rem
-    font-weight: 500
-    line-height: 1.5
-    color: #495057
-    background-color: #fff
-    background-clip: padding-box
-    border: 1px solid #ced4da
-    border-radius: .25rem
   &__form-text
     color: $error
   label

@@ -1,5 +1,5 @@
 import Client from "../plugins/axios";
-const resource = "/securities.json";
+const resource = "/securities.json?print=pretty";
 
 export default {
   get() {
