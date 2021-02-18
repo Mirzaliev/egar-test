@@ -14,10 +14,11 @@
         </tr>
       </thead>
       <tbody>
-        <table-row />
-        <table-row />
-        <table-row />
-        <table-row />
+        <table-row
+          v-for="security in allSecurities[0]"
+          :key="security.key"
+          :security="security"
+        />
       </tbody>
     </table>
   </div>
@@ -25,10 +26,19 @@
 
 <script>
 import TableRow from './TableRow'
+import { mapGetters } from 'vuex'
   export default {
     name: "Table",
     components: {
       TableRow
+    },
+    data() {
+      return {
+        allSecurities: this.$store.getters.getSecurities
+      }
+    },
+    computed: {
+      ...mapGetters['getSecurities']
     }
   }
 </script>

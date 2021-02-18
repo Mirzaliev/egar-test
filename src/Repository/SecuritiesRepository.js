@@ -14,8 +14,8 @@ export default {
   update(payload, id) {
     return Client.put(`${resource}/${id}`, payload);
   },
-  delete(id) {
-    return Client.delete(`${resource}/${id}`);
+  delete(key) {
+    return Client.delete(`securities/${key}.json`);
   }
 
   // MANY OTHER ENDPOINT RELATED STUFFS

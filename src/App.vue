@@ -10,7 +10,7 @@
         >GitHub</a>
       </div>
       <create-securities />
-      <securities-table />
+      <securities-table :key="keyForTableComponent"/>
     </div>
   </div>
 </template>
@@ -28,19 +28,20 @@ export default {
   },
   data() {
     return {
-      securities: []
+      securities: [],
+      keyForTableComponent: 1
     };
   },
   created() {
-    this.getDataFromFirebase()
+    this.getUpdateFromFirebase()
   },
   beforeCreate() {
     this.$store.watch((state) => state.securities, () => {
-      console.log('securities изменен')
+      this.keyForTableComponent += 1
     })
   },
   methods: {
-    ...mapActions(['getDataFromFirebase']),
+    ...mapActions(['getUpdateFromFirebase']),
 
   }
 };

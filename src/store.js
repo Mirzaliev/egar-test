@@ -11,7 +11,7 @@ export default new Vuex.Store({
   },
 
   getters: {
-    GET_SECURITIES: state => {
+    getSecurities: state => {
       return state.securities;
     },
   },
@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
 
   actions: {
-    async getDataFromFirebase({commit}, requestObject) {
+    async getUpdateFromFirebase({commit}, requestObject) {
       commit('CLEAR_SECURITIES');
       const { data } = await Securities.get();
       commit('ADD_SECURITIES', Serialize.serializeFirebaseResponseData(data))

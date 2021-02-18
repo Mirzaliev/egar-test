@@ -93,7 +93,7 @@ export default {
   },
   computed: {},
   methods: {
-    ...mapActions(['getDataFromFirebase']),
+    ...mapActions(['getUpdateFromFirebase']),
     modalShowActions() {
       this.modalShow = !this.modalShow
     },
@@ -104,7 +104,7 @@ export default {
         // }
         await Securities.create(this.form).then(() => {
           Toast.successCreated();
-          this.getDataFromFirebase();
+          this.getUpdateFromFirebase();
           this.modalShowActions();
         }).catch((e) => {
           Toast.error(e);
