@@ -23,6 +23,7 @@
               type="date"
               class="securitiesForm__form-control base-input"
               placeholder="18.03.1996"
+              required
             >
             <small
               v-show="false"
@@ -37,6 +38,7 @@
               type="text"
               class="securitiesForm__form-control base-input"
               placeholder="Газпром"
+              required
             >
             <small
               v-show="false"
@@ -51,6 +53,7 @@
               type="number"
               class="securitiesForm__form-control base-input"
               placeholder="2286"
+              required
             >
             <small
               v-show="false"
@@ -117,8 +120,6 @@ export default {
 
 <style lang="sass">
 @import "../assets/vars"
-.securities-create
-  &__btn
 .securities-create
   &-form-wrap
     width: 100%

@@ -20,6 +20,9 @@ export default {
   successDeleted() {
     Vue.toasted.success("Инструмент успешно удален");
   },
+  successUpdated() {
+    Vue.toasted.success("Инструмент успешно обновлен");
+  },
   validateError() {
     Vue.toasted.error("Заполните все поля");
   }

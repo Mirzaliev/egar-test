@@ -5,7 +5,10 @@
       <small>Enter - сохранить изменения</small>
       <small>Esc - отменить</small>
     </div>
-    <table class="securities-display-table">
+    <table
+      v-cloak
+      class="securities-display-table"
+    >
       <thead>
         <tr>
           <th>Дата</th>
@@ -15,9 +18,11 @@
       </thead>
       <tbody>
         <table-row
-          v-for="security in allSecurities[0]"
-          :key="security.key"
-          :security="security"
+          v-for="(securities,index) in allSecurities"
+          :key="securities.key"
+          :securities="securities"
+          :index="index"
+          @removeSecurities="removeSecurities"
         />
       </tbody>
     </table>
@@ -37,13 +42,18 @@ import { mapGetters } from 'vuex'
         allSecurities: this.$store.getters.getSecurities
       }
     },
-    computed: {
-      ...mapGetters['getSecurities']
+    methods: {
+      removeSecurities(index) {
+        this.allSecurities.splice(index, 1)
+        console.log(index)
+      }
     }
-  }
+    }
 </script>
 
 <style lang="sass">
+[v-cloak]
+  display: none
 @import "../assets/vars"
 .securities-display
   padding: 1rem 0

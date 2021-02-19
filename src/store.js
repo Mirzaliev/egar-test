@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    securities: []
+    securities: null
   },
 
   getters: {
@@ -18,7 +18,15 @@ export default new Vuex.Store({
 
   mutations: {
     ADD_SECURITIES (state, payload) {
-      state.securities.push(payload);
+      /**
+       *  Если просто написать state.securities.push(payload) добавляет
+       *  родительский массив
+       *
+       */
+      payload.forEach((p) => {
+        state.securities.push(p);
+      })
+
     },
     CLEAR_SECURITIES (state){
       state.securities = []

@@ -7,8 +7,8 @@ export default class Serialize {
    static serializeFirebaseResponseData(data) {
     let serializeData = [];
     Object.keys(data).forEach((key) => {
-      const securityWithKey = Object.assign({}, data[key], { key: key });
-      serializeData.push(securityWithKey);
+      const securitiesWithKey = Object.assign({}, data[key], { key: key });
+      serializeData.push(securitiesWithKey);
     })
     return serializeData
   }
