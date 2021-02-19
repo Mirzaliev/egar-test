@@ -39,10 +39,16 @@ import { mapGetters } from 'vuex'
     },
     data() {
       return {
+        // Получение данных из хранилища
         allSecurities: this.$store.getters.getSecurities
       }
     },
     methods: {
+      /**
+       * Удаление инструмента из главного массива,
+       * чтобы обновить данные на экране (чтобы не перезагружать компонент)
+       * @param index
+       */
       removeSecurities(index) {
         this.allSecurities.splice(index, 1)
         console.log(index)

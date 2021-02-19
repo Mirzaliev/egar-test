@@ -32,15 +32,31 @@ export default {
       keyForTableComponent: 1
     };
   },
+  /**
+   * Жизненый хук VUE
+   * перед созданием приложения, загружаем данные из сервера Firebase
+   */
   created() {
     this.getUpdateFromFirebase()
   },
+  /**
+   * после создания приложения,
+   * следим за состоянием securities(this.$state.securities)
+   * Если состояние securities поменяется,
+   * меняем значение ключа компонента Table,
+   * чтобы перезапусить компонент
+   *
+   * Другое решение проблемы this.$forceUpdate();
+   * https://michaelnthiessen.com/force-re-render/
+   */
   beforeCreate() {
     this.$store.watch((state) => state.securities, () => {
       this.keyForTableComponent += 1
     })
   },
   methods: {
+    // проксирует в  this.getUpdateFromFirebase() доступ
+    // к store.actions.getUpdateFromFirebase
     ...mapActions(['getUpdateFromFirebase']),
 
   }

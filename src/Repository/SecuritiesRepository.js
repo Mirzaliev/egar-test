@@ -1,6 +1,10 @@
 import Client from "../plugins/axios";
 const resource = "/securities.json?print=pretty";
-
+/**
+ * Индивидуальный класс репозиторий,
+ * который который содержить различные
+ * методы для удобства выполения REST API запросов к серверу Firebase
+ */
 export default {
   get() {
     return Client.get(`${resource}`);

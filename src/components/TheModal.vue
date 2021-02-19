@@ -31,8 +31,10 @@ export default {
       default: false
     }
   },
-  mounted: function() {},
   methods: {
+    /**
+     * Закрыть модальное окно
+     */
     close() {
       this.$emit("close");
     }

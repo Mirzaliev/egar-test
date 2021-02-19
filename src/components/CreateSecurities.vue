@@ -96,18 +96,30 @@ export default {
   },
   computed: {},
   methods: {
+    /**
+    *  Вспомагательная функция VUEX,
+    *  создающую локальные псевдонимы для действий в виде методов компонента
+    *  проксирует в  this.getUpdateFromFirebase() доступ
+    *  к store.actions.getUpdateFromFirebase
+    */
     ...mapActions(['getUpdateFromFirebase']),
+    /**
+     * Показываем модальное окно
+     */
     modalShowActions() {
       this.modalShow = !this.modalShow
     },
+    /**
+     * Сохранение нового инструмента
+     * @return {Promise<void>}
+     */
     async createSecurities() {
-        // if(!this.isValidateForm){
-        //   Toast.validateError();
-        //   return 0
-        // }
         await Securities.create(this.form).then(() => {
+          // показываем уведомление
           Toast.successCreated();
+          // после успешного сохранения обновляем данные
           this.getUpdateFromFirebase();
+          // закрываем модльное окно
           this.modalShowActions();
         }).catch((e) => {
           Toast.error(e);
