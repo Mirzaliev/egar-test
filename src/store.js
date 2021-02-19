@@ -32,7 +32,9 @@ export default new Vuex.Store({
       state.securities = []
     }
   },
-
+  /**
+   * Получение данных из Firebase
+   */
   actions: {
     async getUpdateFromFirebase({commit}, requestObject) {
       commit('CLEAR_SECURITIES');

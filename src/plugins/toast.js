@@ -7,6 +7,9 @@ Vue.use(Toasted, {
   duration: 5000
 });
 
+/**
+ * Обычные уведомления для пользователя
+ */
 export default {
   show() {
     Vue.toasted.success("Добавлено");

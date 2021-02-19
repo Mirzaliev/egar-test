@@ -1,6 +1,7 @@
 export default class Serialize {
   /**
-   *
+   * Firebase отдает даные в неудобном формате
+   * поэтому решил сериализовать массив в удобном для себя формате
    * @param data
    * @return {Array}
    */
