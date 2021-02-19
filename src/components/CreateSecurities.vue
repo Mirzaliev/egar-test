@@ -119,6 +119,9 @@ export default {
           Toast.successCreated();
           // после успешного сохранения обновляем данные
           this.getUpdateFromFirebase();
+          this.form.date = ''
+          this.form.name = ''
+          this.form.price = ''
           // закрываем модльное окно
           this.modalShowActions();
         }).catch((e) => {
