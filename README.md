@@ -1,24 +1,20 @@
-# egar-test
+# Тестовое задание для EGAR Technology
 
-## Project setup
-```
-npm install
-```
+Основные технологии при разработке
+- Vue 2
+- Firebase
+- Axios
+- Vuex
+- Sass
 
-### Compiles and hot-reloads for development
-```
+Вспомогательные инструменты и билиотеки
+- ESlint
+- Prettier
+
+Запуск
+
+```sh
+cd egar-test
+npm i
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
